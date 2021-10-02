@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://entities/GPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scripts/g_player.gd" type="Script" id=3]
+[ext_resource path="res://gunsuit.png" type="Texture" id=4]
+[ext_resource path="res://scripts/g_enemy_base.gd" type="Script" id=5]
+[ext_resource path="res://scripts/fx_interpolate.gd" type="Script" id=6]
+[ext_resource path="res://tiles/tiles_walls.tres" type="TileSet" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 373.094, 28.1327 )
+
+[sub_resource type="Environment" id=2]
+glow_enabled = true
+glow_intensity = 1.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 15.8278
+
+[node name="LevelTemplate" type="Node2D"]
+position = Vector2( 399.117, 193.552 )
+
+[node name="GPlayer" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="StaticPlatform" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticPlatform"]
+position = Vector2( 228.724, 255.633 )
+collision_layer = 2
+collision_mask = 92
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatform/StaticBody2D"]
+position = Vector2( 19.3552, 213.574 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticPlatform/StaticBody2D"]
+position = Vector2( 19.3552, 213.574 )
+scale = Vector2( 11.6579, 1 )
+texture = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="GEnemyBase" type="Node2D" parent="."]
+position = Vector2( -263.277, 15.892 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="GEnemyBase"]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+script = ExtResource( 6 )
+follow_path = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="GEnemyBase"]
+collision_layer = 20
+collision_mask = 14
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GEnemyBase/RigidBody2D"]
+shape = SubResource( 3 )
+
+[node name="WallsTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+collision_layer = 2
+collision_mask = 92
+format = 1
+tile_data = PoolIntArray( -262146, 4, 0, -262145, 4, 0, -327680, 4, 0, -327679, 4, 0, -327678, 4, 0, -327677, 4, 0, -327676, 4, 0, -327675, 4, 0, -327674, 4, 0, -327673, 4, 0, -196613, 4, 0, -196612, 4, 0, -196611, 4, 0, -196610, 4, 0, -196609, 4, 0, -262144, 4, 0, -262143, 4, 0, -262142, 4, 0, -262141, 4, 0, -262140, 4, 0, -262139, 4, 0, -262138, 4, 0, -262137, 4, 0, -262136, 4, 0, -262135, 4, 0, -131078, 4, 0, -131077, 4, 0, -131073, 4, 0, -196608, 4, 0, -196607, 4, 0, -196606, 4, 0, -196605, 4, 0, -196604, 4, 0, -196603, 4, 0, -196602, 4, 0, -196601, 4, 0, -196600, 4, 0, -196599, 4, 0, -196598, 4, 0, -65542, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -6, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, 65530, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 131066, 4, 0, 131070, 4, 0, 131071, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 196606, 4, 0, 196607, 4, 0, 262138, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 327674, 3, 0, 327675, 3, 0, 327676, 3, 0, 327677, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 393210, 3, 0, 393211, 3, 0, 393212, 3, 0, 393213, 3, 0, 393214, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 458746, 3, 0, 458747, 3, 0, 458748, 3, 0, 458749, 3, 0, 458750, 3, 0, 458751, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 524282, 3, 0, 524283, 3, 0, 524284, 3, 0, 524285, 3, 0, 524286, 3, 0, 524287, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 3, 0, 458755, 3, 0 )
+
+[node name="FloorTilemap" type="TileMap" parent="."]
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="DestructableTilemap" type="TileMap" parent="."]
+collision_layer = 0
+collision_mask = 0
+format = 1
