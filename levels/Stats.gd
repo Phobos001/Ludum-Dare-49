@@ -12,7 +12,10 @@ func _ready():
 		if GlobalVariables.scared_dayon_failed:
 			text += "You tried to threaten Dayon and fell on your ass\n\n"
 		else:
-			text += "You were mean to Dayon >:("
+			text += "You were mean to Dayon >:(\n"
+			
+	if GlobalVariables.dayon_masochism:
+		text += "You crushed yourself to death like ten times.\n"
 			
 	text += "\n\n --------------------------- \n\n" 
 			

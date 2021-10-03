@@ -11,7 +11,7 @@ font_data = ExtResource( 1 )
 
 [node name="JomaDies" type="Node2D"]
 script = ExtResource( 2 )
-restart_at_scene = "res://levels/lvl_dayon.tscn"
+restart_at_scene = "res://levels/EndingPage.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
