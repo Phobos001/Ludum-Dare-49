@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/staremperor.png-ca095cd5c372263647125889a93d24fc.stex"
+path="res://.import/flything.png-238b28d85ee1b7f55e01284ac1e5b2d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/staremperor.png"
-dest_files=[ "res://.import/staremperor.png-ca095cd5c372263647125889a93d24fc.stex" ]
+source_file="res://sprites/mike/flything.png"
+dest_files=[ "res://.import/flything.png-238b28d85ee1b7f55e01284ac1e5b2d9.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

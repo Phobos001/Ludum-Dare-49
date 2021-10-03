@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/staremperor.png-ca095cd5c372263647125889a93d24fc.stex"
+path="res://.import/bg_dayon.png-26883260a84b95b4e6bda3dc76b2746d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/staremperor.png"
-dest_files=[ "res://.import/staremperor.png-ca095cd5c372263647125889a93d24fc.stex" ]
+source_file="res://backgrounds/bg_dayon.png"
+dest_files=[ "res://.import/bg_dayon.png-26883260a84b95b4e6bda3dc76b2746d.stex" ]
 
 [params]
 

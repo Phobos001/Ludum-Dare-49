@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/talk_mike.wav-7ee1de5a5887e9cfe1a56d9ae3f7d024.sample"
+
+[deps]
+
+source_file="res://sounds/talk_mike.wav"
+dest_files=[ "res://.import/talk_mike.wav-7ee1de5a5887e9cfe1a56d9ae3f7d024.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

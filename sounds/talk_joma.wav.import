@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/talk_joma.wav-e883b7f747ad81c2726b7d8ac6fbad97.sample"
+
+[deps]
+
+source_file="res://sounds/talk_joma.wav"
+dest_files=[ "res://.import/talk_joma.wav-e883b7f747ad81c2726b7d8ac6fbad97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

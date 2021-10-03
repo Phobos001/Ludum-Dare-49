@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/d_choice_button.gd" type="Script" id=1]
+[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=2]
+[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/d_choice_parent.gd" type="Script" id=4]
+[ext_resource path="res://sprites/dialogue_box.png" type="Texture" id=5]
+[ext_resource path="res://entities/dialogue/d_dialoguetemplate.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/wave_scale = 10.0
+shader_param/wave_frequency = 0.1
+shader_param/wave_amplitude = 0.01
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/wave_scale = 1.0
+shader_param/wave_frequency = 1.0
+shader_param/wave_amplitude = 0.001
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+font_data = ExtResource( 3 )
+
+[node name="DialogueChoices" type="Node2D"]
+script = ExtResource( 4 )
+next_dialogue_a = ExtResource( 6 )
+next_dialogue_b = ExtResource( 6 )
+next_dialogue_c = ExtResource( 6 )
+next_dialogue_d = ExtResource( 6 )
+
+[node name="WavyBackgroundOfCoolness" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 639.722, 583.688 )
+texture = ExtResource( 5 )
+
+[node name="ChoiceA" type="Button" parent="."]
+material = SubResource( 1 )
+margin_left = 87.0
+margin_top = 531.0
+margin_right = 984.0
+margin_bottom = 640.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 2 )
+text = "Really longly written choice 1"
+flat = true
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChoiceB" type="Button" parent="."]
+material = SubResource( 1 )
+margin_left = 87.0
+margin_top = 564.0
+margin_right = 988.0
+margin_bottom = 673.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 2 )
+text = "Really longly written choice 2"
+flat = true
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChoiceC" type="Button" parent="."]
+material = SubResource( 1 )
+margin_left = 87.0
+margin_top = 597.0
+margin_right = 984.0
+margin_bottom = 706.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 2 )
+text = "Really longly written choice 3"
+flat = true
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChoiceD" type="Button" parent="."]
+material = SubResource( 1 )
+margin_left = 87.0
+margin_top = 629.0
+margin_right = 990.0
+margin_bottom = 738.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 2 )
+text = "Really longly written choice 4"
+flat = true
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ChoiceA" to="." method="_on_ChoiceA_pressed"]
+[connection signal="pressed" from="ChoiceB" to="." method="_on_ChoiceB_pressed"]
+[connection signal="pressed" from="ChoiceC" to="." method="_on_ChoiceC_pressed"]
+[connection signal="pressed" from="ChoiceD" to="." method="_on_ChoiceD_pressed"]

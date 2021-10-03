@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="LD49"
-run/main_scene="res://DevTest.tscn"
+run/main_scene="res://levels/lvl_dayon.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalVariables="*res://scripts/al_global_variables.gd"
 
 [display]
 
@@ -24,7 +28,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/qodot/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 
