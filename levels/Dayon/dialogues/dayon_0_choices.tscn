@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/d_choice_button.gd" type="Script" id=1]
 [ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://levels/zzlvl_goto_next_stage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/Dayon/dialogues/dayon_A.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/Dayon/dialogues/dayon_C.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/Dayon/dialogues/dayon_D.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -30,6 +31,7 @@ script = ExtResource( 4 )
 next_dialogue_a = ExtResource( 7 )
 next_dialogue_b = ExtResource( 6 )
 next_dialogue_c = ExtResource( 8 )
+next_dialogue_d = ExtResource( 9 )
 
 [node name="WavyBackgroundOfCoolness" type="Sprite" parent="."]
 material = SubResource( 1 )

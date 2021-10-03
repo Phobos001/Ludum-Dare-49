@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_joma.ogg-c1e9b9e14eeb535585df9ba1eb37cdb9.oggstr"
+
+[deps]
+
+source_file="res://music/mus_joma.ogg"
+dest_files=[ "res://.import/mus_joma.ogg-c1e9b9e14eeb535585df9ba1eb37cdb9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

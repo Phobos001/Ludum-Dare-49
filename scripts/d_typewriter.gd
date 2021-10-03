@@ -37,7 +37,7 @@ func _process(delta):
 				get_parent().queue_free()
 	
 	time += delta * printspeed
-	if int(time) > time_flat and time_flat <= printtext.length():
+	if int(time) > time_flat and time_flat < printtext.length():
 		talker.play()
 		time_flat = int(time)
 	

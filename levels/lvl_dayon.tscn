@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/Dayon/dialogues/dayon_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://sprites/mike/flything.png" type="Texture" id=9]
 [ext_resource path="res://backgrounds/bg_dayon.png" type="Texture" id=10]
 [ext_resource path="res://levels/lvl_thharg.tscn" type="PackedScene" id=11]
+[ext_resource path="res://music/mus_dayon.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sounds/exoton_collect.wav" type="AudioStream" id=13]
+[ext_resource path="res://sprites/ui_exotons_circle.png" type="Texture" id=14]
+[ext_resource path="res://levels/UIExotonsCountGrow.gd" type="Script" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -80,3 +84,26 @@ script = ExtResource( 5 )
 wave_strength_x = 16.0
 wave_strength_y = 8.0
 wave_frequency_y = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Flash" type="Polygon2D" parent="."]
+modulate = Color( 0, 1, 0.0156863, 0 )
+polygon = PoolVector2Array( -218.712, -181.768, 1549.06, -193.082, 1509.46, 898.691, -227.197, 949.603 )
+
+[node name="ExotonsCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="UIExotonsCountBG" type="Sprite" parent="."]
+self_modulate = Color( 0.172549, 0.172549, 0.172549, 1 )
+position = Vector2( 83.8131, 82.4674 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="UIExotonsCountGrow" type="Sprite" parent="UIExotonsCountBG"]
+self_modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )

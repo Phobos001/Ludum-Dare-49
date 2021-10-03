@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://levels/lvl_dayon.gd" type="Script" id=1]
+[ext_resource path="res://scripts/fx_interpolate.gd" type="Script" id=2]
+[ext_resource path="res://scripts/fx_sinupdown.gd" type="Script" id=3]
+[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=4]
+[ext_resource path="res://backgrounds/bg_joma_jesus_fucking_christ.png" type="Texture" id=6]
+[ext_resource path="res://sprites/joma.png" type="Texture" id=7]
+[ext_resource path="res://levels/joma_wait_start.gd" type="Script" id=8]
+[ext_resource path="res://music/mus_joma.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sounds/exoton_collect.wav" type="AudioStream" id=10]
+[ext_resource path="res://levels/UIExotonsCountGrow.gd" type="Script" id=11]
+[ext_resource path="res://levels/Joma/joma_0.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sprites/mike/flything.png" type="Texture" id=13]
+[ext_resource path="res://sprites/staremperor.png" type="Texture" id=14]
+[ext_resource path="res://sprites/ui_exotons_circle.png" type="Texture" id=15]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/wave_scale = 2.0
+shader_param/wave_frequency = 0.01
+shader_param/wave_amplitude = 0.1
+
+[node name="Joma" type="Node2D"]
+script = ExtResource( 1 )
+player_positioner_path = NodePath("PlayerIdealLocation")
+player_path = NodePath("Player")
+
+[node name="bg_dayon" type="Sprite" parent="."]
+modulate = Color( 0.705882, 0.705882, 0.705882, 1 )
+material = SubResource( 1 )
+position = Vector2( 621.383, 352.254 )
+scale = Vector2( 1.17894, 1.1566 )
+texture = ExtResource( 6 )
+
+[node name="DayonBody" type="Sprite" parent="."]
+position = Vector2( 974.393, 237.588 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+wave_strength_x = 16.0
+wave_frequency_x = -0.5
+wave_strength_y = 16.0
+wave_frequency_y = 0.5
+
+[node name="PlayerFlyThing" type="Sprite" parent="."]
+position = Vector2( -280.898, 418.358 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 13 )
+script = ExtResource( 2 )
+follow_path = NodePath("../Player/Feet")
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( -278.25, 387.762 )
+scale = Vector2( 0.1, 0.1 )
+z_as_relative = false
+texture = ExtResource( 14 )
+script = ExtResource( 2 )
+follow_path = NodePath("../PlayerIdealLocation")
+speed = 1.0
+
+[node name="Feet" type="Node2D" parent="Player"]
+position = Vector2( 14.9834, 389.56 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PlayerIdealLocation" type="Node2D" parent="."]
+position = Vector2( 245.722, 386.563 )
+script = ExtResource( 3 )
+wave_strength_x = 16.0
+wave_strength_y = 8.0
+wave_frequency_y = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Flash" type="Polygon2D" parent="."]
+modulate = Color( 0, 1, 0.0156863, 0 )
+polygon = PoolVector2Array( -218.712, -181.768, 1549.06, -193.082, 1509.46, 898.691, -227.197, 949.603 )
+
+[node name="ExotonsCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="UIExotonsCountBG" type="Sprite" parent="."]
+self_modulate = Color( 0.172549, 0.172549, 0.172549, 1 )
+position = Vector2( 83.8131, 82.4674 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="UIExotonsCountGrow" type="Sprite" parent="UIExotonsCountBG"]
+self_modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 15 )
+script = ExtResource( 11 )
+
+[node name="StartDelay" type="Node" parent="."]
+script = ExtResource( 8 )
+dialogue_start = ExtResource( 12 )

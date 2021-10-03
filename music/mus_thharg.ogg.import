@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_thharg.ogg-5d63419b333a4a1efb3558861669a877.oggstr"
+
+[deps]
+
+source_file="res://music/mus_thharg.ogg"
+dest_files=[ "res://.import/mus_thharg.ogg-5d63419b333a4a1efb3558861669a877.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
