@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/lvl_dayon.gd" type="Script" id=1]
 [ext_resource path="res://scripts/fx_interpolate.gd" type="Script" id=2]
 [ext_resource path="res://scripts/fx_sinupdown.gd" type="Script" id=3]
 [ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=4]
+[ext_resource path="res://levels/EndingPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://backgrounds/bg_joma_jesus_fucking_christ.png" type="Texture" id=6]
 [ext_resource path="res://sprites/joma.png" type="Texture" id=7]
 [ext_resource path="res://levels/joma_wait_start.gd" type="Script" id=8]
@@ -23,6 +24,7 @@ shader_param/wave_amplitude = 0.1
 
 [node name="Joma" type="Node2D"]
 script = ExtResource( 1 )
+next_level = ExtResource( 5 )
 player_positioner_path = NodePath("PlayerIdealLocation")
 player_path = NodePath("Player")
 

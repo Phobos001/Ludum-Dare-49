@@ -1,20 +1,20 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scripts/d_typewriter.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=3]
-[ext_resource path="res://sprites/dialogue_box.png" type="Texture" id=4]
-[ext_resource path="res://sounds/talk_saars.wav" type="AudioStream" id=5]
-[ext_resource path="res://levels/Joma/joma_0_choices.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/talk_saars.wav" type="AudioStream" id=1]
+[ext_resource path="res://scripts/d_typewriter.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://levels/zzlvl_goto_next_stage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=6]
+[ext_resource path="res://sprites/dialogue_box.png" type="Texture" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 3 )
+shader = ExtResource( 6 )
 shader_param/wave_scale = 10.0
 shader_param/wave_frequency = 0.1
 shader_param/wave_amplitude = 0.01
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 3 )
+shader = ExtResource( 6 )
 shader_param/wave_scale = 50.0
 shader_param/wave_frequency = 1.0
 shader_param/wave_amplitude = 0.001
@@ -22,12 +22,12 @@ shader_param/wave_amplitude = 0.001
 [sub_resource type="DynamicFont" id=3]
 size = 100
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 100
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Dialogue" type="Node2D"]
 
@@ -35,7 +35,7 @@ font_data = ExtResource( 2 )
 self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 639.722, 583.688 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="Name" type="Label" parent="."]
 material = SubResource( 2 )
@@ -60,14 +60,14 @@ rect_scale = Vector2( 0.25, 0.25 )
 custom_fonts/font = SubResource( 4 )
 text = "Supernova? There's no stars around here. Remember in Aeon 34 when we had to kill the fucking SUN because it kept trying to eradicate life? There wont be another sun around here for a long time..."
 autowrap = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-next_dialogue = ExtResource( 6 )
+next_dialogue = ExtResource( 5 )
 talker_path = NodePath("../Talker")
-dialogue_print_textspeeds = [ [ "Waiting...", 16.0 ], [ "Waiting...", 16.0 ], [ "Always waiting...", 16.0 ], [ "The entropic peak is ever so far away.", 24.0 ], [ "Stars shine and fade to nothing.", 24.0 ], [ "Galaxies spin and twist until collision.", 22.0 ], [ "Even black holes eventually erode.", 20.0 ], [ "I've witnessed it all.", 8.0 ], [ "...I crave the dawn of maximum energetic chaos", 20.0 ], [ "The most elated aeon of the universe.", 22.0 ], [ "But the burden of knowing...", 20.0 ], [ "...That's when we slide towards the heat death.", 14.0 ], [ "I'm stuck wondering", 10.0 ], [ "With sapients as old as I", 10.0 ], [ "What is there for us to look forward to", 12.0 ], [ "When a grave cataclysm is on the horizon?", 12.0 ] ]
+dialogue_print_textspeeds = [ [ "That sounds promising...", 20.0 ], [ "...But I choose to keep what energy I have", 16.0 ], [ "I'm sorry. I want to be here for as long as I can", 20.0 ], [ "Even if the future is frightening.", 16.0 ], [ "Farewell, and good luck.", 14.0 ] ]
 
 [node name="Talker" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 1 )
 volume_db = -10.0

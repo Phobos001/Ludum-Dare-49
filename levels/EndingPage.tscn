@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/spin.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://levels/Stats.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="EndingPage" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.572549, 0.431373, 0, 1 )
+polygon = PoolVector2Array( -177.396, -107.519, 1889.45, -152.709, 1653.98, 786.765, -351.02, 1010.34 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 663.578, 342.492 )
+script = ExtResource( 1 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
+position = Vector2( -1244.53, -944.193 )
+scale = Vector2( 2.19966, 2.67861 )
+color = Color( 0.545098, 0.235294, 0, 0.352941 )
+polygon = PoolVector2Array( 543.264, 387.191, -222.585, 694.007, -227.342, 132.701, 486.182, 337.245, 184.123, -219.304, 1052.24, -233.575, 619.373, 318.217, 1556.47, -109.897, 1489.87, 515.626, 619.373, 387.191, 1137.87, 931.848, 262.611, 891.415 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 190.273
+margin_top = 68.974
+margin_right = 1120.27
+margin_bottom = 191.974
+custom_fonts/font = SubResource( 1 )
+text = "I have run out of time
+I hope you enjoyed my game!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="Label" parent="."]
+margin_left = 193.0
+margin_top = 221.0
+margin_right = 1123.0
+margin_bottom = 691.0
+custom_fonts/font = SubResource( 2 )
+text = "I have run out of time
+I hope you enjoyed my game!"
+align = 2
+valign = 1
+autowrap = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

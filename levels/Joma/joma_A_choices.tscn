@@ -1,38 +1,42 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/d_choice_parent.gd" type="Script" id=1]
 [ext_resource path="res://scripts/d_choice_button.gd" type="Script" id=2]
-[ext_resource path="res://scripts/d_choice_parent.gd" type="Script" id=3]
-[ext_resource path="res://sprites/dialogue_box.png" type="Texture" id=4]
-[ext_resource path="res://levels/Thharg/dialogues/thharg_A.tscn" type="PackedScene" id=5]
-[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=6]
-[ext_resource path="res://levels/Thharg/dialogues/thharg_B.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://levels/zzlvl_goto_next_stage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://shaders/wibble.gdshader" type="Shader" id=5]
+[ext_resource path="res://sprites/dialogue_box.png" type="Texture" id=6]
+[ext_resource path="res://levels/Joma/joma_A1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/Joma/joma_A2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 6 )
+shader = ExtResource( 5 )
 shader_param/wave_scale = 10.0
 shader_param/wave_frequency = 0.1
 shader_param/wave_amplitude = 0.01
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 6 )
+shader = ExtResource( 5 )
 shader_param/wave_scale = 1.0
 shader_param/wave_frequency = 1.0
 shader_param/wave_amplitude = 0.001
 
 [sub_resource type="DynamicFont" id=3]
 size = 72
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [node name="DialogueChoices" type="Node2D"]
-script = ExtResource( 3 )
-next_dialogue_a = ExtResource( 5 )
-next_dialogue_b = ExtResource( 7 )
+position = Vector2( 32.8434, -23.3082 )
+script = ExtResource( 1 )
+next_dialogue_a = ExtResource( 7 )
+next_dialogue_b = ExtResource( 8 )
+next_dialogue_c = ExtResource( 4 )
 
 [node name="WavyBackgroundOfCoolness" type="Sprite" parent="."]
+self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 639.722, 583.688 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="ChoiceA" type="Button" parent="."]
 material = SubResource( 2 )
@@ -42,7 +46,7 @@ margin_right = 984.0
 margin_bottom = 640.0
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 3 )
-text = "Jesus Christ no"
+text = "Pleeeasse?"
 flat = true
 align = 0
 script = ExtResource( 2 )
@@ -58,7 +62,7 @@ margin_right = 988.0
 margin_bottom = 673.0
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 3 )
-text = "Only if you give me your entire mass for energy to power my servers"
+text = "In the grand scheme of the universe, it's not that much."
 flat = true
 align = 0
 script = ExtResource( 2 )
@@ -67,7 +71,6 @@ __meta__ = {
 }
 
 [node name="ChoiceC" type="Button" parent="."]
-visible = false
 material = SubResource( 2 )
 margin_left = 87.0
 margin_top = 597.0
@@ -75,7 +78,7 @@ margin_right = 984.0
 margin_bottom = 706.0
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 3 )
-text = "We're doing sponsers now, but you don't seem interested in that."
+text = "Okay, sorry for the trouble. "
 flat = true
 align = 0
 script = ExtResource( 2 )
@@ -92,7 +95,7 @@ margin_right = 990.0
 margin_bottom = 738.0
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 3 )
-text = "Then you will pay in blood!"
+text = "[DAYON] Die hoe"
 flat = true
 align = 0
 script = ExtResource( 2 )
